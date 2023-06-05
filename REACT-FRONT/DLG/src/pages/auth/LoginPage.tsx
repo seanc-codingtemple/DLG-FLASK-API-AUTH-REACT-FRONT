@@ -10,13 +10,13 @@ export default function LoginPage() {
   const { user, setUser } = useContext(AuthContext)
   const navigate = useNavigate()
   
-  useEffect(()=>{
-    if(user.token) {
-      localStorage.setItem('token',JSON.stringify(user.token))
-      localStorage.setItem('username',JSON.stringify(user.username))
-      }
-    if(user.token || localStorage.getItem('token')) navigate('/')
-  },[user])
+  useEffect(() => {
+    if (user.token && !localStorage.getItem('token')) {
+      localStorage.setItem('token', JSON.stringify(user.token));
+      localStorage.setItem('username', JSON.stringify(user.username));
+      navigate('/');
+    }
+  }, [user]);
   
   async function handleLoginForm(e:React.FormEvent<HTMLFormElement>){
     e.preventDefault()
