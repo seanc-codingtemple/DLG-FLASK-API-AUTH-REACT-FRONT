@@ -1,30 +1,27 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
+import Logout from './pages/auth/LogoutPage';
 import DefaultHome from './pages/DefaultHome';
-import './index.css'
+import './index.css';
 
 function App() {
-          return (
-            <>
-  <BrowserRouter>
+  return (
+    <>
+      <BrowserRouter>
         <Routes>
-          <Route path="/" element={<DefaultHome />} />
-          
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route path='/' element={<DefaultHome />} />
 
-          {/* <Route path="/logout" element={<Logout />} />
-          <Route path="/user/:username" element={<UserPage />} /> */}
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/register' element={<RegisterPage />} />
 
+          <Route path='/logout' element={<Logout />} />
+          {/* <Route path="/user/:username" element={<UserPage />} /> */}
+          <Route path='*' element={<Navigate to='/' />} />
         </Routes>
       </BrowserRouter>
-
-
-     
     </>
-  )
+  );
 }
 
-export default App
+export default App;
